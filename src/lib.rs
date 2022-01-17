@@ -97,7 +97,7 @@ where
         let x_p = Scalar::from_bytes_mod_order_wide(&x_p);
 
         // Calculate C'=x'G+rH.
-        let c_p = RistrettoPoint::multiscalar_mul([&x_p, &r], [&G, &self.h]);
+        let c_p = RistrettoPoint::multiscalar_mul([&x_p, r], [&G, &self.h]);
 
         // Return the inner writer and C == C'.
         (self.inner, c == &c_p)
